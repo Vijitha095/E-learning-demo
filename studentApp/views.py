@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
 from django.db.models import Sum
 import razorpay
-from studentApp.context_processors import login_required
+from studentApp.decorators import login_required
 # Create your views here.
 
 RZP_KEY_ID="rzp_test_RifDVgJ5phW2D8"
@@ -39,6 +39,7 @@ class StudentLogin(View):
     def get(self,request):
         form=InstructorCreateForm()
         return render(request,'student.html',{'form':form})
+    
     def post(self,request):
         uname=request.POST.get("username")
         psw=request.POST.get("password")

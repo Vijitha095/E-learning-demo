@@ -1,6 +1,5 @@
 from instructorApp.models import Order
-from django.contrib import messages
-from django.shortcuts import redirect
+
 
 def course_count(request):
     if request.user.is_authenticated:
@@ -10,11 +9,4 @@ def course_count(request):
         return {'order_count':0}
     
 
-def login_required(fn):
-    def wrapper(request,*args,**kwargs):
-        if not request.user.is_authenticated:
-            messages.warning(request,"You must login first")
-            return redirect('student_login')
-        else:
-            return fn(request,*args,**kwargs)
-    return wrapper
+
