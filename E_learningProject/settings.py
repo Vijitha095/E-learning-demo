@@ -66,7 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'studentApp.context_processors.course_count'
+                'studentApp.context_processors.course_count',
+                'studentApp.context_processors.login_required',
             ],
         },
     },

@@ -6,11 +6,13 @@ from django.contrib.auth import authenticate,login,logout
 from django.utils.decorators import method_decorator
 from django.db.models import Sum
 import razorpay
+from studentApp.context_processors import login_required
 # Create your views here.
 
 RZP_KEY_ID="rzp_test_RifDVgJ5phW2D8"
 RZP_KEY_SECRET="0ShO1S13h4y4aEH9q11S1e3W"
 
+@method_decorator(login_required,name="dispatch")
 class StudentHome(View):
     def get(self,request):    # [cat1,cat2,cat3,cat4]  #{c1:[]}
         courses=Course.objects.all()  #[c1,c2]  c2.category.all()
